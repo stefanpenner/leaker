@@ -1,7 +1,14 @@
-# Container-leak
+# Leaky-Mcleakerson
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This repo shows memory retention between acceptance tests. AttrNodes do not cleanup and possibly application instances are not being destroyed.
+
+###
+
+1. Run the tests
+2. Take a heap snapshot
+3. Look for filter for HTMLDivElement see detached DOM Trees
+
+
 
 ## Prerequisites
 
