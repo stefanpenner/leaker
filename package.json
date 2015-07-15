@@ -1,5 +1,5 @@
 {
-  "name": "leaky-mcleakerson",
+  "name": "container-leak",
   "version": "0.0.0",
   "description": "Small description for container-leak goes here",
   "private": true,
