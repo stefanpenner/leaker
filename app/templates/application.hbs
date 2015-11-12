@@ -1,6 +1,18 @@
 <h2 id="title">Welcome to Ember</h2>
 
+<ul class="main-nav">
+  {{#link-to "index"}}home{{/link-to}}
+  {{#link-to "posts"}}posts{{/link-to}}
+  {{#link-to "comments"}}comments{{/link-to}}
+</ul>
+
 {{foo-bar}}
 {{fizz-baz}}
 
+{{#each model as |item|}}
+  {{item.name}}
+{{/each}}
+
 {{outlet}}
+
+{{partial "footer"}}

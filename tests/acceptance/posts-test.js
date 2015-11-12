@@ -3,27 +3,27 @@ import { module, test } from 'qunit';
 import startApp from 'container-leak/tests/helpers/start-app';
 import {STRESS_TIMES} from 'container-leak/tests/helpers/utils';
 
-var application;
-
-module('Acceptance | index', {
+module('Acceptance | posts', {
   beforeEach: function() {
-    application = startApp();
+    this.application = startApp();
   },
 
   afterEach: function() {
-    Ember.run(application, 'destroy');
+    Ember.run(this.application, 'destroy');
   }
 });
 
 function runInSeries() {
-  test('visiting /index', function(assert) {
+  test('visiting /posts', function(assert) {
     visit('/');
+    click(".main-nav > a:eq(1)");
 
     andThen(function() {
-      assert.equal(currentURL(), '/');
+      assert.equal(currentURL(), '/posts');
     });
-    click(".main-nav > a:eq(1)");
+    click(".link-drafts");
     click(".main-nav > a:eq(2)");
+    click(".main-nav > a:eq(0)");
   });
 }
 var i = 0;
