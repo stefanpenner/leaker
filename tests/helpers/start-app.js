@@ -1,18 +1,19 @@
-import Ember from 'ember';
-import Application from '../../app';
-import config from '../../config/environment';
+import Ember from "ember";
+import Application from "../../app";
+import config from "../../config/environment";
+import MemoryStats from "./memory-stats";
 
 export default function startApp(attrs) {
-  var application;
+  let application;
 
-  var attributes = Ember.merge({}, config.APP);
+  MemoryStats.profile();
+  let attributes = Ember.merge({}, config.APP);
   attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
 
-  Ember.run(function() {
+  Ember.run(() => {
     application = Application.create(attributes);
     application.setupForTesting();
     application.injectTestHelpers();
   });
-
   return application;
 }

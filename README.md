@@ -1,13 +1,19 @@
 # Leaky-Mcleakerson
 
-This repo shows memory retention between acceptance tests. AttrNodes do not cleanup and possibly application instances are not being destroyed.
+This repo shows memory retention between acceptance tests.
 
 ###
 
 1. Run the tests
 2. Take a heap snapshot
-3. Look for filter for HTMLDivElement see detached DOM Trees
-
+3. Look for filter for DocumentFragment see detached DOM Trees
+4. Record the timeline, listeners never clean up, memory goes up overtime
+5. Inspect memory stats (needs memory flag for chrome) on the console using:
+  ```
+  window._profiling.tests
+  JSON.stringify(window._profiling.tests)
+  console.table(window._profiling.tests)
+  ```
 
 
 ## Prerequisites
@@ -57,4 +63,3 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
-
