@@ -1,1 +1,1 @@
-export const STRESS_TIMES = 100;
+export const STRESS_TIMES = 300;
