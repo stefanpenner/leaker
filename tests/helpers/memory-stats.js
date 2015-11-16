@@ -1,5 +1,4 @@
-
-let isLogging = true;
+let isLogging = false;
 let precision;
 let i;
 
@@ -50,8 +49,10 @@ export function profile() {
   const testStart = QUnit.config.current.started;
   const timePassed = testStart - window._profiling.started;
 
-  console.group(testModule);
-  console.timeStamp(testModule, "startApp");
+  if (isLogging) {
+    console.group(testModule);
+    console.timeStamp(testModule, "startApp");
+  }
 
   if (window.gc) {
     // window.gc();

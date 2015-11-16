@@ -13,8 +13,8 @@ module('Acceptance | comments', {
   }
 });
 
-function runInSeries() {
-  test('visiting /comments', function(assert) {
+function runInSeries(i) {
+  test('visiting /comments' + i, function(assert) {
     visit('/');
     click(".main-nav > a:eq(2)");
 
@@ -27,6 +27,6 @@ function runInSeries() {
 }
 var i = 0;
 while(i < STRESS_TIMES) {
-  runInSeries();
+  runInSeries(i);
   i++;
 }
