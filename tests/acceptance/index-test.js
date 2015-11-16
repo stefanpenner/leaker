@@ -15,8 +15,8 @@ module('Acceptance | index', {
   }
 });
 
-function runInSeries() {
-  test('visiting /index', function(assert) {
+function runInSeries(i) {
+  test('visiting /index' + i, function(assert) {
     visit('/');
 
     andThen(function() {
@@ -28,6 +28,6 @@ function runInSeries() {
 }
 var i = 0;
 while(i < STRESS_TIMES) {
-  runInSeries();
+  runInSeries(i);
   i++;
 }
