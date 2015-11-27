@@ -1,12 +1,10 @@
 import Ember from "ember";
 import Application from "../../app";
 import config from "../../config/environment";
-import MemoryStats from "./memory-stats";
 
 export default function startApp(attrs) {
   let application;
 
-  MemoryStats.profile();
   let attributes = Ember.merge({}, config.APP);
   attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
 
